@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Puja - Portfolio</title>
+  <!-- <link rel="shortcut icon" href="signature.png" type="image/png"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="task4.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100..900&display=swap");
+
+/* GENERAL STYLES */
+body {
+  background-image: url("https://img.freepik.com/free-photo/blue-toned-collection-paper-sheets-with-copy-space_23-2148320445.jpg?w=900&t=st=1709066598~exp=1709067198~hmac=c5c0995a7289d90e1e59f33310d419716d3975cedc8f97a8f31c119f7619dcaf");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+body::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar {
+  width: 7px
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #66dce2;
+}
+
+body {
+  font-family: "Fira Sans", sans-serif;
+}
+
+/* NAVBAR */
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.navbar {
+  background-color: #dcf0f1;
+}
+
+.nav-link {
+  font-size: 18px;
+  position: relative;
+  display: inline-block;
+}
+
+.nav-link::before {
+  transition: 300ms;
+  height: 3px;
+  content: "";
+  position: absolute;
+  border-radius: 5px;
+  background-color: #087075;
+}
+
+.nav-hover::before {
+  width: 0%;
+  bottom: 10px;
+}
+
+.nav-hover:hover::before {
+  width: 70%;
+}
+
+/* HOME SECTION */
+#home,#about,#education,#skills,#projects {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#home a {
+  color: rgb(37, 35, 35);
+}
+#home p {
+  font-size: 25px;
+}
+#home i {
+  cursor: pointer;
+  transition: 0.5s;
+}
+#home i:hover {
+  color: rgb(146, 146, 0);
+}
+#scrollBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+/* SKILLS */
+#skills i {
+  height: 100px;
+  width: 100px;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#skills i:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+}
+
+/* PROJECTS */
+#projects .col-lg-4 {
+  padding: 20px;
+}
+
+/* FLIP CARD STYLE */
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 350px;
+  perspective: 1000px;
+  margin-bottom: 30px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.flip-card-front {
+  background-color: #fff;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.flip-card-front img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.flip-card-back {
+  background-color: #222;
+  color: white;
+  transform: rotateY(180deg);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* EDUCATION */
+#education .education {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: rgba(46, 223, 193, 0.5);
+}
+#education .education:hover {
+  transform: scale(1.02);
+}
+.dark-mode footer {
+  background-color: #111 !important;
+  color: #ffc0cb !important;
+}
+
+.dark-mode footer a {
+  color: #ffc0cb !important;
+}
+
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  #home img {
+    margin-bottom: 30px;
+    width: 200px;
+  }
+  #home .col-md-8 {
+    align-items: center;
+    text-align: center;
+    padding: 0px;
+  }
+  #home p {
+    width: 100%;
+    font-size: 18px;
+  }
+}
+@media (max-width: 370px) {
+  #home h1 {
+    font-size: 25px;
+  }
+}
+
+  </style>
+
+</head>
+
+<body>
+  <header class="fixed-top" data-aos="fade-down">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+            <h1>Puja Patil</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link nav-hover" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-hover" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-hover" href="#education">Education</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-hover" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-hover" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-hover" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section id="home">
+      <div class="container row flex-wrap-reverse">
+        <div class="col-md-8 d-flex flex-column justify-content-center" data-aos="fade-right">
+          <h1 class="display-5 fw-bold mb-3">👋 Hello I am Puja Patil </h1>
+          <p class="px-2 flex">I am a <span id="typed-text"></span></p>
+          <div class="d-flex gap-3 fs-3 px-2">
+            <A href="https://www.linkedin.com/in/pujapatil1419" target="_blank" class="list-group-item"><i class="fa-brands fa-linkedin"></i></a>
+            <A href="https://github.com/PiyuG/PiyuG" target="_blank" class="list-group-item"><i class="fa-brands fa-github"></i></a>
+            <a href="mailto:patilpuja1419@gmail.com" target="_blank" class="list-group-item"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-dark" id="scrollBtn">
+        <i class="fa-solid fa-arrow-up"></i>
+      </button>
+    </section>
+    <section id="about">
+      <div class="container py-5 mb-5">
+
+        <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3" data-aos="fade-up">About Me</h1>
+        <p class="fs-5" data-aos="fade-up">Aspiring Java Full Stack Developer proficient in Core & Advanced Java, Spring Boot, Hibernate (ORM), and 
+          RESTful APIs, with experience building scalable web applications following MVC architecture and 
+          implementing secure authentication. Skilled in developing responsive interfaces using HTML, CSS, 
+          JavaScript, and React. Committed to clean code practices, effective problem-solving, and continuous learning 
+          across modern backend and frontend technologies. </p>
+        <div class="d-flex gap-2" data-aos="fade-up">
+          <a href="https://drive.google.com/file/d/1K4MCNR_4Qs_hE2Gog4lhkbBoc-j9C3HR/view?usp=sharing" class="list-group-item"><button type="button" class="btn btn-dark">My Resume</button>
+            <a href="#contact" class="btn btn-outline-secondary ">Contact Me</a>
+        </div>
+
+      </div>
+    </section>
+    <section id="education">
+      <div class="container py-5" id="featured-3">
+        <h2 class="pb-2 border-bottom border-dark" data-aos="fade-up">Education</h2>
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+
+          <div class="col p-3">
+            <div class="education p-3 rounded" data-aos="flip-right">
+              <i class="fa-solid fa-graduation-cap fs-2 mb-4"></i>
+              <h3 class="fs-3">BCA (2020-2023)</h3>
+              <p class="fs-5">M J College Jalgaon</p>
+              <h class="fs-6">Percentage: 83.17%</h>
+              <p>Passed the examination in 2023.</p>
+            </div>
+          </div>
+
+          <div class="col p-3">
+            <div class="education p-3 rounded" data-aos="flip-right">
+              <i class="fa-solid fa-graduation-cap fs-2 mb-4"></i>
+              <h3 class="fs-3">MCA (2023-2025)</h3>
+              <p class="fs-5">Zeal Institute, Pune</p>
+              <h12 class="fs-6">CGPA: 7.93</h12>
+              <p>Passed the examination in 2025.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <section id="skills" class="py-5">
+      <div class="container py-5" id="featured-3">
+        <h2 class="pb-2 border-bottom border-dark" data-aos="fade-up">Skills</h2>
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3"></div>
+      <div class="container-fluid d-flex flex-wrap gap-3 align-items-center justify-content-center display-5">
+
+        <i class="fa-brands fa-html5 tech-icon" style="color:#E34F26;" title="HTML5" data-aos="zoom-in"></i>
+        <i class="fa-brands fa-css3 tech-icon" style="color:#1572B6;" title="CSS3" data-aos="zoom-in"></i>
+        <i class="fa-brands fa-js tech-icon" style="color:#F7DF1E;" title="JavaScript" data-aos="zoom-in"></i>
+        <i class="fa-brands fa-bootstrap tech-icon" style="color:#7952B3;" title="Bootstrap" data-aos="zoom-in"></i>
+        <i class="fa-brands fa-java tech-icon" style="color:#007396;" title="Java" data-aos="zoom-in"></i>
+        <i class="fa-brands fa-python tech-icon" style="color:#3776AB;" title="Python" data-aos="zoom-in"></i>
+        <i class="fas fa-leaf tech-icon" style="color:#6DB33F;" title="Spring Framework" data-aos="zoom-in"></i>
+        <i class="fas fa-database tech-icon" style="color:#59666C;" title="Hibernate ORM" data-aos="fade-up"></i>
+        <i class="fa-brands fa-git tech-icon" style="color:#F05033;" title="Git" data-aos="zoom-in"></i>
+        <i class="fa-brands fa-react tech-icon" style="color:#61DAFB;" title="React" data-aos="zoom-in"></i>
+        <i class="fa-solid fa-server tech-icon" style="color:#4CAF50;" title="REST API" data-aos="zoom-in"></i>
+
+      </div>
+    </section>
+
+<section id="projects" class="py-5 my-5">
+  <div class="container py-5" id="featured-3">
+        <h2 class="pb-2 border-bottom border-dark" data-aos="fade-up">Projects</h2>
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3"></div>
+  <div class="container">
+    <div class="row">
+
+    <!-- Project 1 -->
+    <div class="col-lg-4 col-md-6">
+        <div class="flip-card" data-aos="fade-up">
+            <div class="flip-card-inner">
+            <!-- Front Side -->
+            <div class="flip-card-front">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3aoh6mMwFzgAteAYeJljIXvahfGanSKnqhuLVBTd871Y9I43SoBAUkodS2OknZIjwC_8&usqp=CAU" alt="Project" />
+                <div class="p-3">
+                <h5 class="card-title">SmartHub</h5>
+                <p class="card-text">Tech Stack: HTML, CSS, JS</p>
+                </div>
+            </div>
+            <!-- Back Side -->
+            <div class="flip-card-back">
+                <p>SmartHub is a full-featured Java-based web application designed to streamline and automate daily operations for modern businesses. Built using JSP, Servlets, and MySQL, it integrates 
+                    product management, order processing, employee handling, customer engagement, and delivery tracking into a single system.</p>
+                <a href="https://github.com/PiyuG/SmartHub" target="_blank" class="btn btn-light mt-2">
+                <i class="fa-brands fa-github"></i> View on GitHub
+                </a>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="col-lg-4 col-md-6">
+        <div class="flip-card" data-aos="fade-up">
+            <div class="flip-card-inner">
+            <!-- Front Side -->
+            <div class="flip-card-front">
+                <img src="https://cdn.prod.website-files.com/634517d7bbf3cf7776c5b33d/65d4956ee3cc9d5187f6ac01_farm%20.png" alt="Project" />
+                <div class="p-3">
+                <h5 class="card-title">Agro Equipment Service and Sale Hub</h5>
+                <p class="card-text">Tech Stack: HTML, CSS, JS, Python, Django, Sqlite3</p>
+                </div>
+            </div>
+            <!-- Back Side -->
+            <div class="flip-card-back">
+                <p>A Django-based web platform designed to empower farmers and agricultural businesses by providing an all-in-one solution to buy, rent, and service agricultural 
+                    equipment. The system ensures seamless interaction between customers and administrators.</p>
+                <a href="https://github.com/PiyuG/Agro-Equipment-Service-and-Sale-Hub" target="_blank" class="btn btn-light mt-2">
+                <i class="fa-brands fa-github"></i> View on GitHub
+                </a>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="col-lg-4 col-md-6">
+        <div class="flip-card" data-aos="fade-up">
+            <div class="flip-card-inner">
+            <!-- Front Side -->
+            <div class="flip-card-front">
+                <img src="https://imgproxy.epicpxls.com/pQqUZqjRA3n7NF1bKfsrt5mYb1xhcIhpEvSwYktcx0g/rs:fill:800:600:0/g:no/aHR0cHM6Ly9pdGVt/cy5lcGljcHhscy5j/b20vdXBsb2Fkcy9w/aG90by83ZTc5ZmNl/ZDE2Y2Y0ZDEwMDQx/YzA5ZWUyNGRjOWFk/ZQ.jpg" alt="Project" />
+                <div class="p-3">
+                <h5 class="card-title">Portfolio</h5>
+                <p class="card-text">Tech Stack: HTML, CSS, JS</p>
+                </div>
+            </div>
+            <!-- Back Side -->
+            <div class="flip-card-back">
+                <p>A personal portfolio website showcasing my skills, experience, and projects. Built with HTML, CSS, and JavaScript, it features responsive design, 
+                    interactive animations, and smooth navigation to present my professional profile effectively.</p>
+                <a href="https://github.com/PiyuG/Agro-Equipment-Service-and-Sale-Hub" target="_blank" class="btn btn-light mt-2">
+                <i class="fa-brands fa-github"></i> View on GitHub
+                </a>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+  </div>
+</section>
+  </main>
+ <footer id="contact" class="text-center py-4 mt-5" style="background-color: #dcf0f1;">
+  <div class="container">
+    <p class="mb-2 fs-5">Made by <strong>Puja Patil</strong></p>
+    <p class="mb-2">
+      <a href="mailto:patilpuja1419@gmail.com" class="text-decoration-none me-3">
+        <i class="fa-solid fa-envelope"></i> Email
+      </a>
+      <a href="https://www.linkedin.com/in/pujapatil1419" target="_blank" class="text-decoration-none me-3">
+        <i class="fa-brands fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="https://github.com/PiyuG/PiyuG" target="_blank" class="text-decoration-none">
+        <i class="fa-brands fa-github"></i> GitHub
+      </a>
+    </p>
+    <p class="mb-0 small text-muted">© 2025 Puja Patil. All rights reserved.</p>
+  </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/typeit/dist/typeit.min.js"></script>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  const scrollBtn = document.getElementById("scrollBtn");
+
+  // Function to check if the user has scrolled enough to display the button
+  function toggleScrollBtn() {
+    if (
+      document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20
+    ) {
+      scrollBtn.style.display = "block";
+    } else {
+      scrollBtn.style.display = "none";
+    }
+  }
+
+  // Function to scroll to the top of the page
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0
+    });
+  }
+
+
+  // Add scroll event listener to the window
+  window.addEventListener("scroll", toggleScrollBtn);
+
+  // Add click event listener to the scroll button
+  scrollBtn.addEventListener("click", scrollToTop);
+
+  // Initially hide the scroll button on page load
+  toggleScrollBtn();
+});
+</script>
+  <script>
+    AOS.init();
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Initialize TypeIt
+      new TypeIt("#typed-text", {
+          speed: 200,
+          waitUntilVisible: true,
+          loop: true
+        })
+        .type("Java Developer.")
+        .pause(200)
+        .delete(15)
+        .type("Full Stack Developer.")
+        .delete(12)
+        .pause(200)
+        .delete(10)
+        .type("Fresher.") // Text to be typed
+        .go(); // Start typing
+    });
+  </script>
+</body>
+
+</html>
