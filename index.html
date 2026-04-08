@@ -198,6 +198,82 @@ body {
 .dark-mode footer a {
   color: #ffc0cb !important;
 }
+/* EXPERIENCE SECTION */
+#experience h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+#experience .mb-4 {
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#experience .mb-4:hover {
+    transform: translateY(-5px);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 6px 15px;
+}
+
+#experience h4 {
+    color: #087075;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+#experience p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+#experience ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+.skill-item {
+  width: 100px;
+  text-align: center;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.skill-item i {
+  font-size: 3rem;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #f5f5f5;
+  box-shadow: 0px 3px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.skill-item p {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.skill-item:hover i {
+  transform: scale(1.2);
+  background-color: #e0f7fa;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    #experience h2 {
+        font-size: 2rem;
+    }
+
+    #experience ul {
+        margin-left: 15px;
+        font-size: 0.95rem;
+    }
+
+    #experience .mb-4 {
+        padding: 15px;
+    }
+}
 
 
 
@@ -252,6 +328,9 @@ body {
               <a class="nav-link nav-hover" href="#skills">Skills</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link nav-hover" href="#experience">Experience</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link nav-hover" href="#projects">Projects</a>
             </li>
             <li class="nav-item">
@@ -283,11 +362,7 @@ body {
       <div class="container py-5 mb-5">
 
         <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3" data-aos="fade-up">About Me</h1>
-        <p class="fs-5" data-aos="fade-up">Aspiring Java Full Stack Developer proficient in Core & Advanced Java, Spring Boot, Hibernate (ORM), and 
-          RESTful APIs, with experience building scalable web applications following MVC architecture and 
-          implementing secure authentication. Skilled in developing responsive interfaces using HTML, CSS, 
-          JavaScript, and React. Committed to clean code practices, effective problem-solving, and continuous learning 
-          across modern backend and frontend technologies. </p>
+        <p class="fs-5" data-aos="fade-up">I am a Java Backend Developer with hands-on experience in building robust backend systems using Java, Spring Boot, and RESTful APIs, gained through industry internship experience. I am proficient in Object-Oriented Programming, Java Collections, Exception Handling, and Java 8 features such as Streams and Lambda Expressions. Experienced in designing, developing, and debugging backend services with Spring Boot, MongoDB, and SQL databases, I also test and maintain APIs using Postman and Git. Passionate about creating scalable and efficient backend solutions, I am motivated to contribute effectively to modern software development teams while continuously learning new technologies.</p>
         <div class="d-flex gap-2" data-aos="fade-up">
           <a href="https://drive.google.com/file/d/1K4MCNR_4Qs_hE2Gog4lhkbBoc-j9C3HR/view?usp=sharing" class="list-group-item"><button type="button" class="btn btn-dark">My Resume</button>
             <a href="#contact" class="btn btn-outline-secondary ">Contact Me</a>
@@ -323,26 +398,131 @@ body {
         </div>
       </div>
     </section>
+
     <section id="skills" class="py-5">
-      <div class="container py-5" id="featured-3">
-        <h2 class="pb-2 border-bottom border-dark" data-aos="fade-up">Skills</h2>
-        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3"></div>
-      <div class="container-fluid d-flex flex-wrap gap-3 align-items-center justify-content-center display-5">
-
-        <i class="fa-brands fa-html5 tech-icon" style="color:#E34F26;" title="HTML5" data-aos="zoom-in"></i>
-        <i class="fa-brands fa-css3 tech-icon" style="color:#1572B6;" title="CSS3" data-aos="zoom-in"></i>
-        <i class="fa-brands fa-js tech-icon" style="color:#F7DF1E;" title="JavaScript" data-aos="zoom-in"></i>
-        <i class="fa-brands fa-bootstrap tech-icon" style="color:#7952B3;" title="Bootstrap" data-aos="zoom-in"></i>
-        <i class="fa-brands fa-java tech-icon" style="color:#007396;" title="Java" data-aos="zoom-in"></i>
-        <i class="fa-brands fa-python tech-icon" style="color:#3776AB;" title="Python" data-aos="zoom-in"></i>
-        <i class="fas fa-leaf tech-icon" style="color:#6DB33F;" title="Spring Framework" data-aos="zoom-in"></i>
-        <i class="fas fa-database tech-icon" style="color:#59666C;" title="Hibernate ORM" data-aos="fade-up"></i>
-        <i class="fa-brands fa-git tech-icon" style="color:#F05033;" title="Git" data-aos="zoom-in"></i>
-        <i class="fa-brands fa-react tech-icon" style="color:#61DAFB;" title="React" data-aos="zoom-in"></i>
-        <i class="fa-solid fa-server tech-icon" style="color:#4CAF50;" title="REST API" data-aos="zoom-in"></i>
-
+  <div class="container py-5">
+    <h2 class="pb-2 border-bottom border-dark mb-4" data-aos="fade-up">Skills</h2>
+    
+    <div class="d-flex flex-wrap gap-4 justify-content-center" data-aos="fade-up">
+      <!-- Programming Languages -->
+      <div class="text-center skill-item">
+        <i class="fa-brands fa-java tech-icon" style="color:#007396;"></i>
+        <p>Java</p>
       </div>
-    </section>
+      <div class="text-center skill-item">
+        <i class="fa-brands fa-python tech-icon" style="color:#3776AB;"></i>
+        <p>Python</p>
+      </div>
+      <div class="text-center skill-item">
+        <i class="fas fa-code tech-icon" style="color:#F7DF1E;"></i>
+        <p>C / C++</p>
+      </div>
+      <div class="text-center skill-item">
+        <i class="fas fa-database tech-icon" style="color:#4CAF50;"></i>
+        <p>SQL</p>
+      </div>
+
+      <!-- Backend Development -->
+      <div class="text-center skill-item">
+        <i class="fas fa-leaf tech-icon" style="color:#6DB33F;"></i>
+        <p>Spring Boot</p>
+      </div>
+      <div class="text-center skill-item">
+        <i class="fas fa-server tech-icon" style="color:#4CAF50;"></i>
+        <p>REST API</p>
+      </div>
+      <div class="text-center skill-item">
+        <i class="fas fa-database tech-icon" style="color:#47A248;"></i>
+        <p>MongoDB</p>
+      </div>
+      <div class="text-center skill-item">
+        <i class="fas fa-database tech-icon" style="color:#59666C;"></i>
+        <p>Hibernate ORM</p>
+      </div>
+      <div class="text-center skill-item">
+        <i class="fas fa-cogs tech-icon" style="color:#7952B3;"></i>
+        <p>Microservices</p>
+      </div>
+      <div class="text-center skill-item">
+        <i class="fas fa-server tech-icon" style="color:#FF6F61;"></i>
+        <p>Servlets / JSP</p>
+      </div>
+      <div class="text-center skill-item">
+        <i class="fas fa-code-branch tech-icon" style="color:#61DAFB;"></i>
+        <p>Django</p>
+      </div>
+
+      <!-- Web Technologies -->
+      <div class="text-center skill-item">
+        <i class="fa-brands fa-html5 tech-icon" style="color:#E34F26;"></i>
+        <p>HTML</p>
+      </div>
+      <div class="text-center skill-item">
+        <i class="fa-brands fa-css3 tech-icon" style="color:#1572B6;"></i>
+        <p>CSS</p>
+      </div>
+      <div class="text-center skill-item">
+        <i class="fa-brands fa-js tech-icon" style="color:#F7DF1E;"></i>
+        <p>JavaScript</p>
+      </div>
+
+      <!-- Security -->
+      <div class="text-center skill-item">
+        <i class="fas fa-shield-alt tech-icon" style="color:#FF0000;"></i>
+        <p>JWT Authentication</p>
+      </div>
+      <div class="text-center skill-item">
+        <i class="fas fa-lock tech-icon" style="color:#FF4500;"></i>
+        <p>Secure APIs</p>
+      </div>
+
+      <!-- Tools & Platforms -->
+      <div class="text-center skill-item">
+        <i class="fa-brands fa-git tech-icon" style="color:#F05033;"></i>
+        <p>Git</p>
+      </div>
+      <div class="text-center skill-item">
+        <i class="fa-brands fa-github tech-icon" style="color:#181717;"></i>
+        <p>GitHub</p>
+      </div>
+      <div class="text-center skill-item">
+        <i class="fas fa-laptop-code tech-icon" style="color:#6C63FF;"></i>
+        <p>IDEs & Tools</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <section id="experience" class="py-5">
+  <div class="container">
+    <h2 class="pb-2 border-bottom border-dark mb-4" data-aos="fade-up">Experience</h2>
+
+    <!-- Java Developer Intern -->
+    <div class="mb-4 p-3 rounded" style="background-color: rgba(220, 240, 241, 0.5);" data-aos="fade-right">
+      <h4 class="fs-4">Java Developer Intern</h4>
+      <p class="mb-1"><strong>HT Media (OTTPlay) | Jul 2025 – Apr 2026</strong></p>
+      <p class="mb-2"><strong>Tech Stack:</strong> Java, Spring Boot, REST APIs, MongoDB, Python, Git, Maven, Microservices</p>
+      <ul>
+        <li>Developed 5+ RESTful APIs using Java and Spring Boot for OTT platform backend services.</li>
+        <li>Resolved 10+ production issues related to subscription pricing and UTC–IST timezone conversion.</li>
+        <li>Implemented backend logic to prevent overwriting of MoEngage user attributes for active subscription packs.</li>
+        <li>Developed Python automation scripts to monitor mandate execution reports, reducing manual effort.</li>
+        <li>Analyzed backend logs and debugged subscription-related API issues to maintain stable backend performance.</li>
+        <li>Tested 10+ REST APIs using Postman and maintained version control using Git.</li>
+      </ul>
+    </div>
+
+    <!-- Software Developer Intern -->
+    <div class="mb-4 p-3 rounded" style="background-color: rgba(220, 240, 241, 0.5);" data-aos="fade-left">
+      <h4 class="fs-4">Software Developer Intern</h4>
+      <p class="mb-1"><strong>Heuristic Technopark | Nashik, Maharashtra | Jan 2023 - Apr 2023</strong></p>
+      <ul>
+        <li>Built interactive desktop applications using Python Tkinter, incorporating GUI elements and event handling.</li>
+        <li>Integrated data processes to enhance user experience and optimize workflow efficiency.</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
 <section id="projects" class="py-5 my-5">
   <div class="container py-5" id="featured-3">
