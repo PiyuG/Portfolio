@@ -102,6 +102,10 @@ body {
   right: 20px;
   z-index: 999;
 }
+.navbar {
+  background: rgba(220, 240, 241, 0.8);
+  backdrop-filter: blur(10px);
+}
 
 /* SKILLS */
 #skills i {
@@ -199,39 +203,88 @@ body {
   color: #ffc0cb !important;
 }
 /* EXPERIENCE SECTION */
-#experience h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    text-align: center;
+/* TIMELINE */
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
 }
 
-#experience .mb-4 {
-    transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  background: #0d6efd;
+  top: 0;
+  bottom: 0;
+  left: 50%;
 }
 
-#experience .mb-4:hover {
-    transform: translateY(-5px);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 6px 15px;
+/* ITEM */
+.timeline-item {
+  padding: 20px 40px;
+  width: 50%;
+  position: relative;
 }
 
-#experience h4 {
-    color: #087075;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+/* LEFT */
+.timeline-item:nth-child(odd) {
+  left: 0;
 }
 
-#experience p {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+/* RIGHT */
+.timeline-item:nth-child(even) {
+  left: 50%;
 }
 
-#experience ul {
-    list-style-type: disc;
-    margin-left: 20px;
-    font-size: 1rem;
-    line-height: 1.6;
+/* DOT */
+.timeline-dot {
+  width: 15px;
+  height: 15px;
+  background: #0d6efd;
+  border-radius: 50%;
+  position: absolute;
+  top: 25px;
+  right: -8px;
 }
+
+.timeline-item:nth-child(even) .timeline-dot {
+  left: -8px;
+}
+
+/* CARD */
+.timeline-content {
+  background: rgba(255,255,255,0.1);
+  padding: 15px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .timeline::after {
+    left: 10px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 30px;
+  }
+
+  .timeline-item:nth-child(even) {
+    left: 0;
+  }
+
+  .timeline-dot {
+    left: 2px;
+  }
+}
+
 .skill-item {
   width: 100px;
   text-align: center;
@@ -275,6 +328,30 @@ body {
     }
 }
 
+/* PROJECT CARD */
+.project-card {
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+}
+
+/* TEXT */
+.tech {
+  font-size: 13px;
+  color: #6c757d;
+}
 
 
 /* RESPONSIVE */
@@ -347,6 +424,9 @@ body {
         <div class="col-md-8 d-flex flex-column justify-content-center" data-aos="fade-right">
           <h1 class="display-5 fw-bold mb-3">👋 Hello I am Puja Patil </h1>
           <p class="px-2 flex">I am a <span id="typed-text"></span></p>
+          <p class="fw-semibold text-muted">
+            Building scalable backend systems with clean architecture and secure APIs.
+          </p>
           <div class="d-flex gap-3 fs-3 px-2">
             <A href="https://www.linkedin.com/in/pujapatil1419" target="_blank" class="list-group-item"><i class="fa-brands fa-linkedin"></i></a>
             <A href="https://github.com/PiyuG/PiyuG" target="_blank" class="list-group-item"><i class="fa-brands fa-github"></i></a>
@@ -362,9 +442,11 @@ body {
       <div class="container py-5 mb-5">
 
         <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3" data-aos="fade-up">About Me</h1>
-        <p class="fs-5" data-aos="fade-up">I am a Java Backend Developer with hands-on experience in building robust backend systems using Java, Spring Boot, and RESTful APIs, gained through industry internship experience. I am proficient in Object-Oriented Programming, Java Collections, Exception Handling, and Java 8 features such as Streams and Lambda Expressions. Experienced in designing, developing, and debugging backend services with Spring Boot, MongoDB, and SQL databases, I also test and maintain APIs using Postman and Git. Passionate about creating scalable and efficient backend solutions, I am motivated to contribute effectively to modern software development teams while continuously learning new technologies.</p>
+        <p class="fs-5">Java Backend Developer with hands-on experience in building scalable applications using Spring Boot and REST APIs. 
+           Strong in OOP, Java Collections, and debugging real-world backend issues. Passionate about writing clean, efficient code and contributing to production-level systems.
+        </p>
         <div class="d-flex gap-2" data-aos="fade-up">
-          <a href="https://drive.google.com/file/d/1K4MCNR_4Qs_hE2Gog4lhkbBoc-j9C3HR/view?usp=sharing" class="list-group-item"><button type="button" class="btn btn-dark">My Resume</button>
+          <a href="https://drive.google.com/file/d/1X9nfJa_3vwEwIiMMJCmxOiJJhpHlH508/view?usp=sharing" class="list-group-item"><button type="button" class="btn btn-dark">My Resume</button>
             <a href="#contact" class="btn btn-outline-secondary ">Contact Me</a>
         </div>
 
@@ -493,115 +575,177 @@ body {
   </div>
 </section>
 
-    <section id="experience" class="py-5">
+<section id="experience" class="py-5">
   <div class="container">
-    <h2 class="pb-2 border-bottom border-dark mb-4" data-aos="fade-up">Experience</h2>
+    <h2 class="text-center mb-5">Experience</h2>
 
-    <!-- Java Developer Intern -->
-    <div class="mb-4 p-3 rounded" style="background-color: rgba(220, 240, 241, 0.5);" data-aos="fade-right">
-      <h4 class="fs-4">Java Developer Intern</h4>
-      <p class="mb-1"><strong>HT Media (OTTPlay) | Jul 2025 – Apr 2026</strong></p>
-      <p class="mb-2"><strong>Tech Stack:</strong> Java, Spring Boot, REST APIs, MongoDB, Python, Git, Maven, Microservices</p>
-      <ul>
-        <li>Developed 5+ RESTful APIs using Java and Spring Boot for OTT platform backend services.</li>
-        <li>Resolved 10+ production issues related to subscription pricing and UTC–IST timezone conversion.</li>
-        <li>Implemented backend logic to prevent overwriting of MoEngage user attributes for active subscription packs.</li>
-        <li>Developed Python automation scripts to monitor mandate execution reports, reducing manual effort.</li>
-        <li>Analyzed backend logs and debugged subscription-related API issues to maintain stable backend performance.</li>
-        <li>Tested 10+ REST APIs using Postman and maintained version control using Git.</li>
-      </ul>
-    </div>
+    <div class="timeline">
 
-    <!-- Software Developer Intern -->
-    <div class="mb-4 p-3 rounded" style="background-color: rgba(220, 240, 241, 0.5);" data-aos="fade-left">
-      <h4 class="fs-4">Software Developer Intern</h4>
-      <p class="mb-1"><strong>Heuristic Technopark | Nashik, Maharashtra | Jan 2023 - Apr 2023</strong></p>
-      <ul>
-        <li>Built interactive desktop applications using Python Tkinter, incorporating GUI elements and event handling.</li>
-        <li>Integrated data processes to enhance user experience and optimize workflow efficiency.</li>
-      </ul>
+      <!-- Experience 1 -->
+      <div class="timeline-item" data-aos="fade-right">
+        <div class="timeline-dot"></div>
+
+        <div class="timeline-content">
+          <div class="d-flex align-items-center mb-2">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3AGWvJV4Ym7MPfCSyGoWGWsIOrNgCtl0wQA&s" width="40" class="me-2">
+            <h5 class="mb-0">Java Backend Intern</h5>
+          </div>
+
+          <p>
+            <strong>HT Media (OTTPlay)</strong> | Jul 2025 – Apr 2026  
+            <a href="https://www.ottplay.com/" target="_blank" class="ms-2">
+              <i class="fa-solid fa-globe"></i>
+            </a>
+          </p>
+
+          <ul>
+            <li>Developed REST APIs using Spring Boot.</li>
+            <li>Fixed production issues and improved stability.</li>
+            <li>Worked on subscription backend logic.</li>
+            <li>Created Python automation scripts.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Experience 2 -->
+      <div class="timeline-item" data-aos="fade-left">
+        <div class="timeline-dot"></div>
+
+        <div class="timeline-content">
+          <div class="d-flex align-items-center mb-2">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFiowgLuQkRVk88zJombQ_TQA8sIz-tg3cOA&s" width="40" class="me-2">
+            <h5 class="mb-0">Software Developer Intern</h5>
+          </div>
+
+          <p><strong>Heuristic Technopark</strong> | Jan 2023 – Apr 2023</p>
+
+          <ul>
+            <li>Built Python Tkinter applications.</li>
+            <li>Worked on GUI and event handling.</li>
+          </ul>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
-
-<section id="projects" class="py-5 my-5">
-  <div class="container py-5" id="featured-3">
-        <h2 class="pb-2 border-bottom border-dark" data-aos="fade-up">Projects</h2>
-        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3"></div>
+    
+<section id="projects" class="py-5">
   <div class="container">
-    <div class="row">
+    <h2 class="text-center mb-5">Projects</h2>
 
-    <!-- Project 1 -->
-    <div class="col-lg-4 col-md-6">
-        <div class="flip-card" data-aos="fade-up">
-            <div class="flip-card-inner">
-            <!-- Front Side -->
-            <div class="flip-card-front">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3aoh6mMwFzgAteAYeJljIXvahfGanSKnqhuLVBTd871Y9I43SoBAUkodS2OknZIjwC_8&usqp=CAU" alt="Project" />
-                <div class="p-3">
-                <h5 class="card-title">SmartHub</h5>
-                <p class="card-text">Tech Stack: HTML, CSS, JS, Java, JSP Servlet, MySQL</p>
-                </div>
-            </div>
-            <!-- Back Side -->
-            <div class="flip-card-back">
-                <p>SmartHub is a full-featured Java-based web application designed to streamline and automate daily operations for modern businesses. Built using JSP, Servlets, and MySQL, it integrates 
-                    product management, order processing, employee handling, customer engagement, and delivery tracking into a single system.</p>
-                <a href="https://github.com/PiyuG/SmartHub" target="_blank" class="btn btn-light mt-2">
-                <i class="fa-brands fa-github"></i> View on GitHub
-                </a>
-            </div>
-            </div>
-        </div>
-    </div>
+    <div class="row g-4">
 
-    <!-- Project 2 -->
-    <div class="col-lg-4 col-md-6">
-        <div class="flip-card" data-aos="fade-up">
-            <div class="flip-card-inner">
-            <!-- Front Side -->
-            <div class="flip-card-front">
-                <img src="https://cdn.prod.website-files.com/634517d7bbf3cf7776c5b33d/65d4956ee3cc9d5187f6ac01_farm%20.png" alt="Project" />
-                <div class="p-3">
-                <h5 class="card-title">Agro Equipment Service and Sale Hub</h5>
-                <p class="card-text">Tech Stack: HTML, CSS, JS, Python, Django, Sqlite3</p>
-                </div>
-            </div>
-            <!-- Back Side -->
-            <div class="flip-card-back">
-                <p>A Django-based web platform designed to empower farmers and agricultural businesses by providing an all-in-one solution to buy, rent, and service agricultural 
-                    equipment. The system ensures seamless interaction between customers and administrators.</p>
-                <a href="https://github.com/PiyuG/Agro-Equipment-Service-and-Sale-Hub" target="_blank" class="btn btn-light mt-2">
-                <i class="fa-brands fa-github"></i> View on GitHub
-                </a>
-            </div>
-            </div>
-        </div>
-    </div>
+      <!-- Project 1 -->
+      <div class="col-md-6">
+        <div class="project-card" data-aos="zoom-in">
 
-    <!-- Project 3 -->
-    <div class="col-lg-4 col-md-6">
-        <div class="flip-card" data-aos="fade-up">
-            <div class="flip-card-inner">
-            <!-- Front Side -->
-            <div class="flip-card-front">
-                <img src="https://imgproxy.epicpxls.com/pQqUZqjRA3n7NF1bKfsrt5mYb1xhcIhpEvSwYktcx0g/rs:fill:800:600:0/g:no/aHR0cHM6Ly9pdGVt/cy5lcGljcHhscy5j/b20vdXBsb2Fkcy9w/aG90by83ZTc5ZmNl/ZDE2Y2Y0ZDEwMDQx/YzA5ZWUyNGRjOWFk/ZQ.jpg" alt="Project" />
-                <div class="p-3">
-                <h5 class="card-title">Portfolio</h5>
-                <p class="card-text">Tech Stack: HTML, CSS, JS</p>
-                </div>
+          <img src="https://static.startuptalky.com/2022/04/Backend-Development-for-E-commerce-website--StartupTalky.jpg">
+
+          <div class="p-3">
+            <h4>E-commerce Backend</h4>
+
+            <p class="tech">Java • Spring Boot • Microservices • MongoDB</p>
+
+            <p>
+              Built a scalable backend system with JWT authentication and REST APIs for product and order management.
+            </p>
+
+            <ul>
+              <li>Secure authentication (JWT)</li>
+              <li>Microservices architecture</li>
+              <li>Optimized API performance</li>
+            </ul>
+
+            <div class="mt-2">
+              <a href="https://github.com/PiyuG/QuickCart" target="_blank" class="btn btn-dark btn-sm">GitHub</a>
             </div>
-            <!-- Back Side -->
-            <div class="flip-card-back">
-                <p>A personal portfolio website showcasing my skills, experience, and projects. Built with HTML, CSS, and JavaScript, it features responsive design, 
-                    interactive animations, and smooth navigation to present my professional profile effectively.</p>
-                <a href="https://github.com/PiyuG/Portfolio" target="_blank" class="btn btn-light mt-2">
-                <i class="fa-brands fa-github"></i> View on GitHub
-                </a>
-            </div>
-            </div>
+          </div>
+
         </div>
-    </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="col-md-6">
+        <div class="project-card" data-aos="zoom-in">
+
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3aoh6mMwFzgAteAYeJljIXvahfGanSKnqhuLVBTd871Y9I43SoBAUkodS2OknZIjwC_8">
+
+          <div class="p-3">
+            <h4>SmartHub</h4>
+
+            <p class="tech">Java • JSP • Servlet • MySQL</p>
+
+            <p>
+              Developed a business management system handling orders, products, and employees.
+            </p>
+
+            <ul>
+              <li>Full CRUD system</li>
+              <li>Database integration</li>
+              <li>Modular design</li>
+            </ul>
+
+            <a href="https://github.com/PiyuG/SmartHub" class="btn btn-dark btn-sm">GitHub</a>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="col-md-6">
+        <div class="project-card" data-aos="zoom-in">
+
+          <img src="https://cdn.prod.website-files.com/634517d7bbf3cf7776c5b33d/65d4956ee3cc9d5187f6ac01_farm%20.png" alt="Project" />
+          <div class="p-3">
+            <h4>Agro Equipment Service and Sale Hub</h4>
+
+            <p class="tech">HTML • CSS • Python • Django • JS • Sqlite3</p>
+
+            <p>
+              A Django-based web platform designed to empower farmers and agricultural businesses by providing an all-in-one solution to buy, rent, and service agricultural 
+              equipment. The system ensures seamless interaction between customers and administrators.
+            </p>
+
+            <ul>
+              <li>Full CRUD system</li>
+              <li>Database integration</li>
+              <li>Modular design</li>
+            </ul>
+
+            <a href="https://github.com/PiyuG/Agro-Equipment-Service-and-Sale-Hub" class="btn btn-dark btn-sm">GitHub</a>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="col-md-6">
+        <div class="project-card" data-aos="zoom-in">
+
+          <img src="https://media.licdn.com/dms/image/v2/C4D12AQENw9GUPGXhxw/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1563704499299?e=2147483647&v=beta&t=3J-GoauNYX82R23Y37PCAncHfxw3E_I4ukHmyIhMXvI" alt="Project" />
+            <h4>Portfolio</h4>
+
+            <p class="tech">HTML • CSS • JS </p>
+
+            <p>
+              A personal portfolio website showcasing my skills, experience, and projects. Built with HTML, CSS, and JavaScript, it features responsive design, 
+                interactive animations, and smooth navigation to present my professional profile effectively.
+            </p>
+
+            <ul>
+                <li>Responsive design across all devices</li>
+                <li>Smooth scrolling & animations (AOS, TypeIt)</li>
+                <li>Clean UI with Bootstrap components</li>
+            </ul>
+
+
+            <a href="https://github.com/PiyuG/Portfolio" class="btn btn-dark btn-sm">GitHub</a>
+
+          </div>
+        </div>
+      </div>
+
 
     </div>
   </div>
@@ -675,10 +819,10 @@ body {
           waitUntilVisible: true,
           loop: true
         })
-        .type("Java Developer.")
+        .type("Java Backend Developer.")
         .pause(200)
         .delete(15)
-        .type("Full Stack Developer.")
+        .type("REST API Developer.")
         .delete(12)
         .pause(200)
         .delete(10)
